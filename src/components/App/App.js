@@ -1,17 +1,15 @@
 import React, { PureComponent } from 'react';
 import Layout from '../Layout';
-import Footer from '../Footer';
-import Header from '../Header';
 import LoginForm from '../LoginForm';
 import Congratulations from '../Congratulations';
-import { AuthProvider, AuthConsumer } from '../../contexts/Auth';
+import { AuthProvider, MyContext } from '../../contexts/Auth';
 
 class App extends PureComponent {
   render() {
     return (
       <AuthProvider>
-        <Layout header={Header} footer={Footer}>
-          <AuthConsumer>
+        <Layout>
+          <MyContext.Consumer>
             {({ isAuthorized, authorize, authorizeError }) =>
               isAuthorized ? (
                 <Congratulations />
@@ -22,7 +20,7 @@ class App extends PureComponent {
                 />
               )
             }
-          </AuthConsumer>
+          </MyContext.Consumer>
         </Layout>
       </AuthProvider>
     );

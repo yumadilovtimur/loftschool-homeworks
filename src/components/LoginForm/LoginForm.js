@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import './LoginForm.css';
-import Button from '../Button'
+import Button from '../Button';
+import { AuthProvider, MyContext } from '../../contexts/Auth';
 
 const fields = [
   {

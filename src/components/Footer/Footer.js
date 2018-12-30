@@ -1,10 +1,24 @@
 import React, { PureComponent } from 'react';
-import { AuthConsumer } from '../../contexts/Auth';
+import { AuthProvider, MyContext } from '../../contexts/Auth';
+import SectionTitle from '../SectionTitle';
 import './Footer.css';
 
 class Footer extends PureComponent {
+  static contextType = MyContext;
+
   render() {
-    return 'empty';
+    const context = this.context;
+
+    return (
+      <footer className="footer">
+        <SectionTitle className="header__title">Footer</SectionTitle>
+        <p className="footer-message t-footer">
+          {context.isAuthorized
+            ? `Вы вошли как ${context.email}`
+            : `Вы гость в этой системе`}
+        </p>
+      </footer>
+    );
   }
 }
 
