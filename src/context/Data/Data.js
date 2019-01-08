@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import data from './mailData';
+
 const { Provider, Consumer } = React.createContext('');
 
 class DataProvider extends Component {

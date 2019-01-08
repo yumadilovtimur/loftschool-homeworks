@@ -1,18 +1,29 @@
 import React, { PureComponent } from 'react';
 import { withData } from '../../context/Data';
-import Mail from '../Mail';
+import { Redirect } from 'react-router-dom';
 
 class InboxMail extends PureComponent {
   render() {
-    const {
-      match: {
-        params: { id }
-      },
-      data
-    } = this.props;
-    const mail = data.inbox.find(mail => mail.id === id);
+    try {
+      const {
+        match: {
+          params: { id }
+        },
+        data
+      } = this.props;
+      const mail = data.inbox.find(mail => mail.id === id);
 
-    return <Mail {...mail} />;
+      return (
+        <React.Fragment>
+          <p className="t-mail-from">
+            From: <b>{mail.from}</b>
+          </p>
+          <p className="t-mail-body">{mail.body}</p>
+        </React.Fragment>
+      );
+    } catch (err) {
+      return <Redirect to="/app/inbox" />;
+    }
   }
 }
 
