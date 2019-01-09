@@ -1,6 +1,7 @@
 import React from 'react';
 import { withAuth } from '../../context/Auth';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import './LoginForm.css';
 
 class LoginForm extends React.Component {
   state = {
@@ -23,6 +24,7 @@ class LoginForm extends React.Component {
 
   render() {
     const { authError, isAuthorized } = this.props;
+    const { password, email } = this.state;
 
     return isAuthorized ? (
       <Redirect to="/app" />
@@ -37,7 +39,7 @@ class LoginForm extends React.Component {
               type="text"
               name="email"
               className="input"
-              value={this.state.email}
+              value={email}
               onChange={this.handleInputChange}
             />
           </p>
@@ -49,7 +51,7 @@ class LoginForm extends React.Component {
               type="password"
               name="password"
               className="input"
-              value={this.state.password}
+              value={password}
               onChange={this.handleInputChange}
             />
           </p>
