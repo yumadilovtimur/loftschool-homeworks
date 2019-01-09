@@ -3,6 +3,7 @@ import Home from '../Home';
 import InboxList from '../InboxList';
 import { Route, Link, Switch, Redirect } from 'react-router-dom';
 import OutboxList from '../OutboxList/OutboxList';
+import './AppRouter.css';
 
 class AppRouter extends React.Component {
   render() {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { withData } from '../../context/Data';
-import { Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 class MailList extends React.Component {
   render() {
